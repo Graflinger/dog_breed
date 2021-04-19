@@ -39,32 +39,68 @@ dog_names = list(df["dog_breeds"])
 
 
 def path_to_tensor(img_path):
+    '''
+    prepares a image for deep learning
+            Parameters:
+                    img_path (str): path to image which should get prepared
+            Returns:
+                    tensor4d (4D tensor): 4d tensor with shape (1, 224, 244, 3)
+    '''
     # loads RGB image as PIL.Image.Image type
     img = image.load_img(img_path, target_size=(224, 224))
     # convert PIL.Image.Image type to 3D tensor with shape (224, 224, 3)
     x = image.img_to_array(img)
     # convert 3D tensor to 4D tensor with shape (1, 224, 224, 3) and return 4D tensor
-    return np.expand_dims(x, axis=0)
+    tensor4d = np.expand_dims(x, axis=0)
+    return tensor4d
 
 
 def paths_to_tensor(img_paths):
+    '''
+    prepares a list of images for deep learning
+            Parameters:
+                    img_paths (list):list of paths to images which should get prepared
+            Returns:
+                    np.vstack (stack of 4D tensor): stack 4d tensor with shape (1, 224, 244, 3)
+    '''
     list_of_tensors = [path_to_tensor(img_path)
                        for img_path in tqdm(img_paths)]
     return np.vstack(list_of_tensors)
 
 
 def ResNet50_predict_labels(img_path):
+    '''
+    Using resnet50 to predict if a given picture is a dog
+            Parameters:
+                    img_path (str): path to image which should get inspected
+            Returns:
+                    np.argmax(int): returns result of prediction
+    '''
     # returns prediction vector for image located at img_path
     img = preprocess_input(path_to_tensor(img_path))
     return np.argmax(ResNet50_model_dog_detection.predict(img))
 
 
 def dog_detector(img_path):
+    '''
+    detects if a given picture is a dog using resnet50
+            Parameters:
+                    img_path (str): path to image which should get detected
+            Returns:
+                    (bool): returns result of detection
+    '''
     prediction = ResNet50_predict_labels(img_path)
     return ((prediction <= 268) & (prediction >= 151))
 
 
 def face_detector(img_path):
+    '''
+    detects if a given picture has a face using resnet50
+            Parameters:
+                    img_path (str): path to image which should get detected
+            Returns:
+                    (int): returns number of detected faces
+    '''
     img = cv2.imread(img_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
@@ -73,6 +109,13 @@ def face_detector(img_path):
 
 
 def Resnet50_predict_breed(img_path):
+    '''
+   classifies the breed of a dog in a given picture
+            Parameters:
+                    img_path (str): path to image which should get classified
+            Returns:
+                    (string): returns the result of the prediction
+    '''
     # extract bottleneck features
     bottleneck_feature = extract_Resnet50(path_to_tensor(img_path))
     # obtain predicted vector
@@ -82,6 +125,13 @@ def Resnet50_predict_breed(img_path):
 
 
 def dog_breed(img_path):
+    '''
+    Classifies which kind of picture is given. If it is a dog or a human face, it return a matching dog breed.
+            Parameters:
+                    img_path (str): path to image which should get classified
+            Returns:
+                    (string): answer string for the application
+    '''
     if face_detector(img_path) == True:
         return "This human needs following breed as a pet: " + Resnet50_predict_breed(img_path)
 
