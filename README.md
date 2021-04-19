@@ -24,8 +24,12 @@ With the help of these files, a neural network should be trained in order to be 
 The loss function for fitting the models is categorical_crossentropy.
 To evaluate which model performs best for this task, the accuracy of correct classifications is calculated. (number of correctly_classified)/(all testcases)
 
-## Data Exploration
+### Data Exploration
+The dataset contains 8351 dog images with 133 different dog categories. 
+The different dog categories are imbalanced.
 
+Pictures look like:
+![alt text](https://github.com/Graflinger/dog_breed/blob/main/webapp/uploads/dog3.jpg)
 
 ## Installation
 
