@@ -9,6 +9,15 @@ This project is distributed in 2 parts:
 - Notebook (Preparation of the CNN used to classify dog breeds)
 - App (Hosting a Flask App to use the trained model on user given images)
 
+### Project Definition
+Thise project aims to be able to recognize dog breeds in images using deep learning.
+Additionally, it should be detected if there is a human face instead of a dog or neither in the image
+For this purpose, a CNN defined in a Jupyter notebook is used. 
+This CNN is then hosted via a web app and can be populated with images to classify the images.
+If a dog is detected, its breed will be classified. If a human face is detected, the most similar dog breed to this dog is returned.
+
+### Problem statement
+We are given a collection of images containing a dog and the belonging label containing the dog's breed.
 
 ## Installation
 
