@@ -62,7 +62,8 @@ The ResNet50 model provides a really good performance for this kind of task. The
 ## Conclusion
 
 ### Reflection
-
+It was very interesting to go through all steps in a image classification task.
+From preprocessing the images to building your CNN models, finetuning and evaluating them.
 
 Using transfer learning with state of the art models like ResNet50 delivers a very appealing performance.
 Building a self written model doesn't look like a suitable alternative.
