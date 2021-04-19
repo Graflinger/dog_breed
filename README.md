@@ -29,7 +29,9 @@ The dataset contains 8351 dog images with 133 different dog categories.
 The different dog categories are imbalanced.
 
 Pictures look like:
-![alt text](https://github.com/Graflinger/dog_breed/blob/main/webapp/uploads/dog3.jpg)
+![alt text](https://github.com/Graflinger/dog_breed/blob/main/webapp/uploads/dog1.jpg)
+
+The labels look like:
 
 ## Installation
 
