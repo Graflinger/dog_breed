@@ -44,16 +44,32 @@ The images cant be handled by the used neural networks in their base format. To 
 ### Implementation
 This is mainly done in the path_to_tensor function, where a (223, 223, 1) shaped 3d tensor is transformed into a (1, 223, 223, 3) 4d tensor.
 
+### Refinement
+There was no need in improving anything from the Data Preprocessing part
+
 ## Result
 
 ### Model Evaluation and Validation
+The first try was a self build CNN model with a poor test accuracy of under 10%
+
+Afterwards I tried a pretrained model with VGG16 as base. Unfortunately it also performed poorly with a slightly better accuracy of 34.4498% 
+
+The final model is build with transfer model too. As a pretrained model a Resnet50 model is being used. It resulted in a 82.6555% accuracy with the testing dataset, which is very good value at a usecase like this.
+
+### Justification
+The ResNet50 model provides a really good performance for this kind of task. The other ones aren't delivering an acceptable performance, therefore they wont be used in the finished web application
 
 ## Conclusion
 
 ### Reflection
-Impressive transfer learning
+
+
+Using transfer learning with state of the art models like ResNet50 delivers a very appealing performance.
+Building a self written model doesn't look like a suitable alternative.
 
 ### Improvement
+One possible improvenment is to add more dense layers and other layers like dropouts to the final model.
+Collecting more dog pictures to get a larger training dataset could be also very helpful.
 
 ## Installation
 
