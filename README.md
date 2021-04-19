@@ -39,11 +39,10 @@ ages/train/001.Affenpinscher
 ## Methodology
 
 ### Data Preprocessing
+The images cant be handled by the used neural networks in their base format. To be suitable for the CNNs used, they are being transformed to a 4D tensor suitable for supplying to a Keras CNN
 
 ### Implementation
-
-### Refinement
-The process of improving upon the algorithms and techniques used is clearly documented. Both the initial and final solutions are reported, along with intermediate solutions, if necessary.
+This is mainly done in the path_to_tensor function, where a (223, 223, 1) shaped 3d tensor is transformed into a (1, 223, 223, 3) 4d tensor.
 
 ## Result
 
