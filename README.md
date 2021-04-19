@@ -26,12 +26,35 @@ To evaluate which model performs best for this task, the accuracy of correct cla
 
 ### Data Exploration
 The dataset contains 8351 dog images with 133 different dog categories. 
-The different dog categories are imbalanced.
+The different dog categories are imbalanced as you can see here:
+![imbalanced](https://github.com/Graflinger/dog_breed/blob/main/Notebook/imbalanced.png)
+
 
 Pictures look like:
-![alt text](https://github.com/Graflinger/dog_breed/blob/main/webapp/uploads/dog1.jpg)
+![dog](https://github.com/Graflinger/dog_breed/blob/main/Notebook/Labrador_retriever_06457.jpg)
 
 The labels look like:
+ages/train/001.Affenpinscher
+
+## Methodology
+
+### Data Preprocessing
+
+### Implementation
+
+### Refinement
+The process of improving upon the algorithms and techniques used is clearly documented. Both the initial and final solutions are reported, along with intermediate solutions, if necessary.
+
+## Result
+
+### Model Evaluation and Validation
+
+## Conclusion
+
+### Reflection
+Impressive transfer learning
+
+### Improvement
 
 ## Installation
 
